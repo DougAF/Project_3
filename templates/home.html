@@ -7,7 +7,9 @@
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
 
     <title>Biz City</title>
     <link rel="stylesheet" href="../static/css/style.css">
@@ -84,8 +86,8 @@
                   <p class="text-left">Next we calculated a 'Business growth' index by measuring the change in a city's establishments from 2011 to 2016 and normalizing this measure over population as shown below.</p>
                   <p class="text-left"><b>Business growth</b> = </p>
                   <!-- <HISHAM> for making pretty -->
-                    <ul><u>Et / Pt   -   Eo / Po</u></ul>
-                    <ul> Eo / Po</ul>
+                    <ul><u> <h3> $${{Et \over Pt} - {Eo \over Po}\over {Eo \over Po}} $$ </h3></u></ul>
+                    
                     <ul> This can be read as 'establishments over population at time t minus establishments over population initial all divided by establishments over population initial.' This calculation returns a ratio that we multiplied by 100 to return a percent change in establishments which can be seen by clicking a city on the Map page. </ul>
                     <hr>
                     <p class="text-left"><b>RESTful API and GeoJSONifying</b></p>
