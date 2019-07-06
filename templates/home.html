@@ -13,13 +13,14 @@
     <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <div class="jumbotron" style="margin-bottom: 0px;">
-    <h1>BIZ CITY</h1>
-    <p>By Team Yellow 3.0</p>
+    <br>
+    <h1>CITY ANALYTICS</h1>
+    <p> By Team Yellow 3.0</p>
 </div>
 <body>
     <!-- nav bar code start  -->
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top mr-auto">
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
             <span class="navbar-toggler-icon"></span>
@@ -29,7 +30,7 @@
         <!-- <a class="navbar-brand"><img src="#"></a>
         <span class="navbar-text">Yellow-Team 3.0</span> -->
         
-        <ul class="navbar-nav">
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class= "nav-link" href="#section1">About</a>
             </li>
@@ -68,10 +69,43 @@
     </div>
 
     <section class="section section-light">
-        <h2 id="section1">Section one</h2>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse nihil accusamus est repudiandae, sunt provident, optio perferendis magni modi tempora dolorem itaque ad, quos necessitatibus officia ex sint? Tempora ratione harum, amet atque dolorem, illum possimus in et fugit quia commodi repudiandae aliquam quis officia porro ipsam eligendi quas? Asperiores reiciendis excepturi dolorum ex quae iusto. Dicta laboriosam deleniti distinctio dolores, aut cum pariatur molestias, culpa facere maiores et porro quaerat beatae similique omnis, quis praesentium deserunt. Inventore qui, facere quae repellendus error adipisci, quia saepe voluptate natus, neque doloremque non! Eius repudiandae dolores dignissimos non at tenetur exercitationem eligendi?
-        </p>
+        <h2 id="section1">Methodology</h2>
+        <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <br>
+                  <p class="text-left">After Consulting some Experts (via interwebs) we decided to break city data collection into 3 categories.</p>
+                    <ul class="text-left">1) City Infrastructure</ul>
+                    <ul class="text-left">2) City Demographics</ul>
+                    <ul class="text-left">3) City Tax Structure</ul>
+                  <p class="text-left">Then we collected data for each category ie. commute time, education level of population, and rigor of businesses tax law. We accomplished this using a combination of web scraping and downloading publicly available CSVs. After looking through our data we decided to focus on 'Establishments' as our key indicator of city business development.</p>
+                  <br>
+                  <p class="text-left">The writers at census.gov define an <b>establishment</b> as: <br><br>"A single physical location where business is conducted or where services or industrial operations are performed. Data in this sector includes those establishments where manufacturing is performed."</p>
+                  <hr>
+                  <p class="text-left">Next we calculated a 'Business growth' index by measuring the change in a city's establishments from 2011 to 2016 and normalizing this measure over population as shown below.</p>
+                  <p class="text-left"><b>Business growth</b> = </p>
+                  <img src="../project_2_equation.png" alt="change in establishment">
+                    <ul><u>Et / Pt   -   Eo / Po</u></ul>
+                    <ul> Eo / Po</ul>
+                    <ul> This can be read as 'establishments over population at time t minus establishments over population initial all divided by establishments over population initial.' This calculation returns a ratio that we multiplied by 100 to return a percent change in establishments which can be seen by clicking a city on the Map page. </ul>
+                    <hr>
+                    <p class="text-left"><b>RESTful API and GeoJSONifying</b></p>
+                    <p class="text-left">Our data route is populated via querying an SQLite database and formatting the data into a GeoJSON format. This nested dictionary format makes for easier accessing of data for the scatter plot and map.</p>
+                    <hr>
+                    <p class="text-left"><b>Visualizations</b></p>
+                    <p class="text-left">To display our data in an interactive way we decided to create a Leaflet interactive map and a scatter plot with toggleable X variables. The Leaflet map consists of a circle for each city that is colored to indicate business growth or shrinkage and whos radius is scaled by the magnitude of this change. Our scatter plot allows the user to search for correlation between a chosen X varable and business growth percentage. The scatter plot also provides information via hovertext so that one may transition between the Scatter and Map with a city or metric in mind.</p>
+                    <hr>
+                    <p class="text-left"><b>Project Limitations</b></p>
+                    <p class="text-left">DATA</p>
+                    <li class="text-left">Only contians 383 Metro areas</li>
+                    <li class="text-left">No startup survival rate data</li>
+                    <li class="text-left">Tax data had to be taken in a rank form and trusted to outside source (shown below)</li>
+                    <li class="text-left">Population and establishment data taken from a small window (5 years)</li>
+                    <hr>
+                    <p class="text-left"><b>Next Steps</b></p>
+                    <li class="text-left">Collect more X variables for all 3 of the above categories</li>
+                    <li class="text-left">Use machine learning to cluster variables into a multivariate analysis</li>
+                    <li class="text-left">Add a page to visualze best and worst cities (top five and bottom five) for a selected x variable and have this selection populate a list and a comparison bar chart</li>
     </section>
 
     <div class="pimg2">
