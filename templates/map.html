@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <script src="../static/js/app.js"></script>
+  <title>Biz City MAP</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+
+</head>
+<body>
+      <!-- nav bar code start  -->
+
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top mr-auto">
+
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="collapse_target">
+          <!-- <a class="navbar-brand"><img src="#"></a>
+          <span class="navbar-text">Yellow-Team 3.0</span> -->
+          
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class= "nav-link" href="home.html#section1">About</a>
+          </li>
+          <li class="nav-item">
+              <a class= "nav-link" href="home.html#section2">Project Methods</a>
+          </li>
+          <li class="nav-item">
+              <a class= "nav-link" href="home.html#section3">The Team</a>
+          </li>
+              <li class="nav-item dropdown">
+                  <a class= "nav-link dropdown-toggle" data-toggle="dropdown" data-target= "dropdown_target" href="#">
+                      Visuals
+                      <span class="caret"></span>    
+                  </a>
+              <div class="dropdown-menu" aria-labelledby="dropdown_target">
+                  <ul class="navbar-nav">
+                  <a class= "dropdown-item" href = "scatter.html">Scatter</a>
+                  </ul>
+                  <ul class="navbar-nav">
+                  <a class= "dropdown-item" href = "map.html">Map</a>
+                  </ul>
+                  <ul class="navbar-nav">
+                  <a class= "dropdown-item">Data</a>
+                  </ul>
+              </div>
+              </li>
+          </ul>
+          </div>
+      </nav>
+  
+
+    <!--========== PARALLAX ==========-->
+    <div class="parallax-window" data-parallax="scroll" data-image-src="img/1920x1080/01.jpg">
+      <div class="parallax-content container">
+        <br>
+       </div>
+    </div>
+    <!--========== PARALLAX ==========-->
+  
+  <!-- The container that holds our map -->
+  <div class="container" id="map-id">
+  </div>
+<!-- container for all else  NONE WORKING-->
+  <!-- <div class="container">
+    <div class="row">
+        <div class="col-md-2">
+          <div class="well">
+            <h5>Select Variable - City Attribute:</h5>
+            <select id="selDataset" onchange="optionChanged(this.value)"></select>
+          </div>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h6 class="panel-title">%%%</h6>
+            </div>
+            <div id="city-metadata" class="panel-body"></div>
+          </div>
+        </div>
+      <div class="col-md-8">
+        <div id = "top-10-bar"> Insert function to populate comparison barchart</div>
+        <p>COLMD8</p>
+      </div>
+    </div> -->
+  </div>
+    
+</div>
+  <!-- D3 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.js"></script>
+
+  <!-- Leaflet JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+
+  <!-- API Key -->
+  <script type="text/javascript" src="../static/config.js"></script>
+  <!-- Our JavaScript -->
+  <script type="text/javascript" src="../static/logic.js"></script>
+</body>
+
+</html>
