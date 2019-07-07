@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-  </script>
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
 
     <title>Biz City</title>
     <link rel="stylesheet" href="../static/css/style.css">
@@ -49,9 +49,12 @@
                 </a>
             <div class="dropdown-menu" aria-labelledby="dropdown_target">
                 <ul class="navbar-nav">
-                <a class= "dropdown-item">Scatter</a>
-                <div class="dropdown-divider"></div>
-                <a class= "dropdown-item">Map</a>
+                <a class= "dropdown-item" href = "scatter.html">Scatter</a>
+                </ul>
+                <ul class="navbar-nav">
+                <a class= "dropdown-item" href = "map.html">Map</a>
+                </ul>
+                <ul class="navbar-nav">
                 <a class= "dropdown-item">Data</a>
                 </ul>
             </div>
@@ -65,83 +68,136 @@
     <div class="pimg1">
         <div class="ptext">
             <span class="border">
-                Biz City
+                The What
             </span>
         </div>
     </div>
 
     <section class="section section-light">
-        <h2 id="section1">Methodology</h2>
-        <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                <br>
-                  <p class="text-left">After Consulting some Experts (via interwebs) we decided to break city data collection into 3 categories.</p>
-                    <ul class="text-left">1) City Infrastructure</ul>
-                    <ul class="text-left">2) City Demographics</ul>
-                    <ul class="text-left">3) City Tax Structure</ul>
-                  <p class="text-left">Then we collected data for each category ie. commute time, education level of population, and rigor of businesses tax law. We accomplished this using a combination of web scraping and downloading publicly available CSVs. After looking through our data we decided to focus on 'Establishments' as our key indicator of city business development.</p>
-                  <p class="text-left">The writers at census.gov define an <b>establishment</b> as: <br><br>"A single physical location where business is conducted or where services or industrial operations are performed. Data in this sector includes those establishments where manufacturing is performed."</p>
-                  <hr>
-                  <p class="text-left">Next we calculated a 'Business growth' index by measuring the change in a city's establishments from 2011 to 2016 and normalizing this measure over population as shown below.</p>
-                  <p class="text-left"><b>Business growth</b> = </p>
-                  <!-- <HISHAM> for making pretty -->
-                    <ul><u> <h3> $${{Et \over Pt} - {Eo \over Po}\over {Eo \over Po}} $$ </h3></u></ul>
-                    
-                    <ul> This can be read as 'establishments over population at time t minus establishments over population initial all divided by establishments over population initial.' This calculation returns a ratio that we multiplied by 100 to return a percent change in establishments which can be seen by clicking a city on the Map page. </ul>
-                    <hr>
-                    <p class="text-left"><b>RESTful API and GeoJSONifying</b></p>
-                    <p class="text-left">Our data route is populated via querying an SQLite database and formatting the data into a GeoJSON format. This nested dictionary format makes for easier accessing of data for the scatter plot and map.</p>
-                    <hr>
-                    <p class="text-left"><b>Visualizations</b></p>
-                    <p class="text-left">To display our data in an interactive way we decided to create a Leaflet interactive map and a scatter plot with toggleable X variables. The Leaflet map consists of a circle for each city that is colored to indicate business growth or shrinkage and whos radius is scaled by the magnitude of this change. Our scatter plot allows the user to search for correlation between a chosen X varable and business growth percentage. The scatter plot also provides information via hovertext so that one may transition between the Scatter and Map with a city or metric in mind.</p>
-                    <hr>
-                    <p class="text-left"><b>Project Limitations</b></p>
-                    <p class="text-left">DATA</p>
-                    <li class="text-left">Only contians 383 Metro areas</li>
-                    <li class="text-left">No startup survival rate data</li>
-                    <li class="text-left">Tax data had to be taken in a rank form and trusted to outside source (shown below)</li>
-                    <li class="text-left">Population and establishment data taken from a small window (5 years)</li>
-                    <hr>
-                    <p class="text-left"><b>Next Steps</b></p>
-                    <li class="text-left">Collect more X variables for all 3 of the above categories</li>
-                    <li class="text-left">Use machine learning to cluster variables into a multivariate analysis</li>
-                    <li class="text-left">Add a page to visualze best and worst cities (top five and bottom five) for a selected x variable and have this selection populate a list and a comparison bar chart</li>
+        <h2 id="section1">Build Your City for Business</h2>
+<p> What is a city? This question when analyzed closely proved difficult to answer. A city is composed of a government, people, and the structures they use and inhabit in their daily life. We believe that these three broad categories can be quantified and analyzed. To do this we analyze a cities tax structure, demographic qualities, and growth of establishments then attempt to see how these qualities influence each other. So, what does all this mean for your city and how can you make your community more marketable for start-ups and business in general?</p>
+<h2>Plan Ahead</h2>
+<p>It’s time to start thinking smart for smarter growth. Many cities that are reaping the rewards and seeing businesses grow have made it a point to plan for change, adopt a strategic approach and think environmentally. When it comes to the future, one thing is for certain, change will happen. As a city, being prepared for change and understanding the geopolitical trends happening now can better prepare you for the future.</p>
     </section>
 
     <div class="pimg2">
         <div class="ptext">
             <span class="border trans">
-                Image Two Text
+                The How
             </span>
         </div>
     </div>
-
     <section class="section section-dark">
-        <h2 id="section2">Section Two</h2>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed consectetur voluptates reprehenderit esse laudantium, recusandae voluptas dicta quos? Rem quidem, odit excepturi asperiores officia reiciendis quis facilis dolore porro iure qui animi quibusdam esse illo possimus perspiciatis, accusantium a cupiditate dicta suscipit autem. Autem magnam neque quos sapiente. Maiores rem, est, ullam placeat inventore maxime delectus voluptatum incidunt excepturi ea nulla voluptate error accusamus ad quaerat vitae a illo eos exercitationem reprehenderit, assumenda odit? Corporis!
-        </p>
+            <h2 id="section1">Methodology</h2>
+                <div class="row">
+                  <div class="col-md-12">
+                    <br>
+                      <p class="text-left">After Consulting some Experts (via interwebs) we decided to break city data collection into 3 categories.</p>
+                        <ul class="text-left">1) City Infrastructure</ul>
+                        <ul class="text-left">2) City Demographics</ul>
+                        <ul class="text-left">3) City Tax Structure</ul>
+                      <p class="text-left">Then we collected data for each category ie. commute time, education level of population, and rigor of businesses tax law. We accomplished this using a combination of web scraping and downloading publicly available CSVs. After looking through our data we decided to focus on 'Establishments' as our key indicator of city business development.</p>
+                      <p class="text-left">The writers at census.gov define an <b>establishment</b> as: <br><br>"A single physical location where business is conducted or where services or industrial operations are performed. Data in this sector includes those establishments where manufacturing is performed."</p>
+                      <hr>
+                      <p class="text-left">Next we calculated a 'Business growth' index by measuring the change in a city's establishments from 2011 to 2016 and normalizing this measure over population as shown below.</p>
+                      <p class="text-left"><b>Business growth</b> = </p>
+                      <!-- <HISHAM> for making pretty -->
+                        <ul><u> <h3> $${{Et \over Pt} - {Eo \over Po}\over {Eo \over Po}} $$ </h3></u></ul>
+                        
+                        <ul> This can be read as 'establishments over population at time t minus establishments over population initial all divided by establishments over population initial.' This calculation returns a ratio that we multiplied by 100 to return a percent change in establishments which can be seen by clicking a city on the Map page. </ul>
+                        <hr>
+                        <p class="text-left"><b>RESTful API and GeoJSONifying</b></p>
+                        <p class="text-left">Our data route is populated via querying an SQLite database and formatting the data into a GeoJSON format. This nested dictionary format makes for easier accessing of data for the scatter plot and map.</p>
+                        <hr>
+                        <p class="text-left"><b>Visualizations</b></p>
+                        <p class="text-left">To display our data in an interactive way we decided to create a Leaflet interactive map and a scatter plot with toggleable X variables. The Leaflet map consists of a circle for each city that is colored to indicate business growth or shrinkage and whos radius is scaled by the magnitude of this change. Our scatter plot allows the user to search for correlation between a chosen X varable and business growth percentage. The scatter plot also provides information via hovertext so that one may transition between the Scatter and Map with a city or metric in mind.</p>
+                        <hr>
+                        <p class="text-left"><b>Project Limitations</b></p>
+                        <p class="text-left">DATA</p>
+                        <li class="text-left">Only contians 383 Metro areas</li>
+                        <li class="text-left">No startup survival rate data</li>
+                        <li class="text-left">Tax data had to be taken in a rank form and trusted to outside source (shown below)</li>
+                        <li class="text-left">Population and establishment data taken from a small window (5 years)</li>
+                        <hr>
+                        <p class="text-left"><b>Next Steps</b></p>
+                        <li class="text-left">Collect more X variables for all 3 of the above categories</li>
+                        <li class="text-left">Use machine learning to cluster variables into a multivariate analysis</li>
+                        <li class="text-left">Add a page to visualze best and worst cities (top five and bottom five) for a selected x variable and have this selection populate a list and a comparison bar chart</li>
+                    </div>
+                </div>
+            
     </section>
-
     <div class="pimg3">
         <div class="ptext">
             <span class="border trans">
-                Image Three Text
+            The Who
             </span>
         </div>
     </div>
     <section class="section section-dark">
-        <h2 id="section3">Section Three</h2>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed consectetur voluptates reprehenderit esse laudantium, recusandae voluptas dicta quos? Rem quidem, odit excepturi asperiores officia reiciendis quis facilis dolore porro iure qui animi quibusdam esse illo possimus perspiciatis, accusantium a cupiditate dicta suscipit autem. Autem magnam neque quos sapiente. Maiores rem, est, ullam placeat inventore maxime delectus voluptatum incidunt excepturi ea nulla voluptate error accusamus ad quaerat vitae a illo eos exercitationem reprehenderit, assumenda odit? Corporis!
-        </p>
+        <h2 id="section3">Our Team</h2><p>aka the good guys</p>
+        <div class="row">
+            <!-- Team -->
+            <div class="col-sm-4 sm-margin-b-50">
+                <div class="bg-color-white margin-b-20">
+                    <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
+                        <img class="img-responsive" src="../static/img/DAF.jpg" alt="Doug AF" width="200">
+                    </div>
+                </div>
+                <h4><a href="https://dougaf.github.io/portfolio_DougAF/">Doug AF </a> <span class="text margin-l-20">Project Manager</span></h4>
+            </div>
+            <!-- End Team -->
+
+            <!-- Team -->
+            <div class="col-sm-4 sm-margin-b-50">
+                    <div class="bg-color-white margin-b-20">
+                        <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
+                        <img class="img-responsive" src="../static/img/DAF.jpg" alt="Doug AF" width="200">
+                        </div>
+                    </div>
+                    <h4><a href="#">M. Ahsan</a> <span class="text margin-l-20">Lead Engineer</span></h4>
+                </div>
+            <!-- End Team -->
+            <!-- Team -->
+            <div class="col-sm-4 sm-margin-b-50">
+                    <div class="bg-color-white margin-b-20">
+                        <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
+                            <img class="img-responsive" src="../static/img/DAF.jpg" alt="Doug AF" width="200">
+                        </div>
+                    </div>
+                    <h4><a href="#">Mason Carnahan</a> <span class="text margin-l-20">Data Manager</span></h4>
+                </div>
+            <!-- End Team -->
+
+            <!-- Team -->
+            <div class="col-sm-4 sm-margin-b-50">
+                <div class="bg-color-white margin-b-20">
+                    <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
+                        <img class="img-responsive" src="../static/img/DAF.jpg" alt="Doug AF" width="200">
+                    </div>
+                </div>
+                <h4><a href="#">Christopher Fraizer</a> <span class="text margin-l-20">D3 Developer</span></h4>
+            </div>
+            <!-- End Team -->
+
+            <!-- Team -->
+            <div class="col-sm-4 sm-margin-b-50">
+                <div class="bg-color-white margin-b-20">
+                    <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
+                        <img class="img-responsive" src="../static/img/DAF.jpg" alt="Doug AF" width="200">
+                    </div>
+                </div>
+                <h4><a href="#">Hisham Hammour</a> <span class="text margin-l-20">Lead Designer</span></h4>
+                <!-- <a class="link" href="#">Read More</a> -->
+            </div>
+            <!-- End Team -->
+        </div>
     </section>
 
     <div class="pimg1">
         <div class="ptext">
             <span class="border">
-                Biz City
+                The End 
             </span>
         </div>
     </div>
