@@ -14,7 +14,7 @@ from flask import Flask, jsonify, render_template
 #################################################
 
 # Create Engine
-engine = create_engine("sqlite:///cities_db.sqlite")
+engine = create_engine("sqlite:///cities_db_3.sqlite")
 
 # reflect an existing database into a new model
 Base = automap_base() # AUTO MAP OR DECLARATIVE?
@@ -37,20 +37,15 @@ app = Flask(__name__)
 # Flask Routes
 #################################################
 
-@app.route("/")
+@app.route("/home")
 def home():
     cities = Cities
     return render_template("home.html", cities = cities)
 
-@app.route("/info")
-def info():
-    cities = Cities
-    return render_template("info.html", cities = cities)
-
 # create Map 
 @app.route("/map")
 def map():
-    engine = create_engine("sqlite:///cities_db.sqlite")
+    engine = create_engine("sqlite:///cities_db_3.sqlite")
 # reflect an existing database into a new model
     Base = automap_base() # AUTO MAP OR DECLARATIVE?
 # reflect the tables
@@ -65,7 +60,7 @@ def map():
 # Scatter Plot
 @app.route("/scatter")
 def population():
-    engine = create_engine("sqlite:///cities_db.sqlite")
+    engine = create_engine("sqlite:///cities_db_3.sqlite")
 # reflect an existing database into a new model
     Base = automap_base() # AUTO MAP OR DECLARATIVE?
 # reflect the tables
@@ -82,7 +77,7 @@ def population():
 #create metadata route to pull data clientside RESTful API
 @app.route("/metadata")
 def city_metadata():
-    engine = create_engine("sqlite:///cities_db.sqlite")
+    engine = create_engine("sqlite:///cities_db_3.sqlite")
 # reflect an existing database into a new model
     Base = automap_base() # AUTO MAP OR DECLARATIVE?
 # reflect the tables
@@ -127,13 +122,8 @@ def city_metadata():
         city_metadata_dict["bach_or_higher_percent"] = result[7]
         city_metadata_dict["agg_commute_mins"] = result[8]
         city_metadata_dict["biz_growth_Y"] = result[9]
-        city_metadata_dict["tax_rank"] = result[10]
-        city_metadata_dict["corp_tax_rank"] = result[11]
-        city_metadata_dict["income_tax_rank"] = result[12]
-        city_metadata_dict["sales_tax_rank"] = result[13]
-        city_metadata_dict["property_tax_rank"] = result[14]
-        city_metadata_dict["unemployment_tax_rank"] = result[15]
-        city_metadata_dict["city_state"] = result[16]
+        city_metadata_dict["city_state"] = result[10]
+        city_metadata_dict["tax_score"] = result[11]
         
     #INSERT ADDITIONAL VARS HERE 
         meta_list.append(city_metadata_dict)
