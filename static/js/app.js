@@ -83,37 +83,46 @@ function init(){
  }) 
 }
 
-function updatePlotly(newdata) {
+function updatePlotly(newdata, newlayout) {
     const chart = document.getElementById("scatter");
     Plotly.restyle(chart, 'x', [newdata]);
-    Plotly.relayout(chart, 'xaxis.title.text', [newtitle])
+    Plotly.relayout(chart, 'xaxis.title.text',newlayout);
 }
 function getData(dataset) {
     let data = [];
+    let layout = '';
     switch (dataset) {
         case "Population":
-        data =  population ;
+        data =  population;
+        layout = 'population';
         break;
         case "EducationalAttainment":
         data = educationalAttainment;
+        layout = 'Education'
         break;
         case "Household Income":
         data =  income;
+        layout = 'Income';
         break;
         case "Commute Time":
         data =  commuteTime;
+        layout = 'Commute';
         break;
      //    case "Crime Rate":
      //    data =  crimeRate
         break;
         case "State Tax":
         data =  taxRank
+        layout = 'Taxes';
         break;
         default:
-        data =  population ;  
+        data =  population ;
+        layout = 'popluation' ; 
   }
-  updatePlotly(data);
+  updatePlotly(data, layout);
 }
+
+init();
 
 init();
 
