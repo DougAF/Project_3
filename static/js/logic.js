@@ -24,12 +24,26 @@ function createMap(citiesPlot) {
         id: "mapbox.satellite",
         accessToken: API_KEY
     });
+
+    // Create dark sattelite layer 
+    var NASAGIBS_ViirsEarthAtNight2012 = L.tileLayer('https://map1.vis.earthdata.nasa.gov/wmts-webmerc/VIIRS_CityLights_2012/default/{time}/{tilematrixset}{maxZoom}/{z}/{y}/{x}.{format}', {
+	attribution: 'Imagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href="https://earthdata.nasa.gov">ESDIS</a>) with funding provided by NASA/HQ.',
+	bounds: [[-85.0511287776, -179.999999975], [85.0511287776, 179.999999975]],
+	minZoom: 1,
+    maxZoom: 8,
+    id: "mapbox.satellitedark",
+	format: 'jpg',
+	time: '',
+    tilematrixset: 'GoogleMapsCompatible_Level',
+    accessToken: API_KEY
+});
     
     // Create a baseMaps object to hold the lightmap layer
     const baseMaps = {
         "Satellite Image" : satellite,
         "Street Map": streetmap,
-        "Dark Map" : darkmap
+        "Dark Map" : darkmap,
+        "Satellite Dark" : NASAGIBS_ViirsEarthAtNight2012
     };
 
     // Create an overlayMaps object to hold the quakePlot layer
@@ -41,7 +55,7 @@ function createMap(citiesPlot) {
     let map = L.map("map-id", {
         center: [32.73, -90],
         zoom: 5,
-        layers: [streetmap, darkmap, satellite, citiesPlot]
+        layers: [streetmap, darkmap, satellite, NASAGIBS_ViirsEarthAtNight2012, citiesPlot]
     });
 
     // Create a layer control, pass in the baseMaps and overlayMaps. Add the layer control to the map
@@ -75,7 +89,7 @@ function createCircleMarkers(response) {
           }
           
         // new Date parses Epoch time from JSON into human readable date&time
-        const popupMsg = "<h4>" + city.city + ", " + city.state + "<hr></h4>" +"<h5><b> Business Growth: " + (city.biz_growth_Y).toFixed(2)+ "%</b>" + "<hr><li>Population: "+ numberWithCommas(city.population_2016) + "</li> " + "<li>Establishments: " + numberWithCommas(city.estab_2016) + "</li> " + "<li>Tax Law Rank: " + city.tax_rank + "</li> " +  "<li>Education: " + (city.bach_or_higher_percent).toFixed(2) + "%     completed undergrad" + "</li> </h5> ";
+        const popupMsg = "<h4>" + city.city + ", " + city.state + "<hr></h4>" +"<h5><b> Business Growth: " + (city.biz_growth_Y).toFixed(2)+ "%</b>" + "<hr><li>Population: "+ numberWithCommas(city.population_2016) + "</li> " + "<li>Establishments: " + numberWithCommas(city.estab_2016) + "</li> " + "<li>Tax Law Score: " + city.tax_score + "</li> " +  "<li>Education: " + (city.bach_or_higher_percent).toFixed(2) + "%     completed undergrad" + "</li> </h5> ";
         const citiesMarkers = L.circle(coords, options).bindPopup(popupMsg); 
 
         // Add the marker to the quakeMarkers array
