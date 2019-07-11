@@ -71,7 +71,7 @@ function init(){
     title: 'X vs Business Growth',
     xaxis: {
         title: {
-            text:'Selected X Variable'
+            text:"Total Population"
         }
     },
     yaxis: {
