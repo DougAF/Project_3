@@ -28,7 +28,7 @@ var buisnessGrowth = [];
 var cityState = [];
 var population = [];  
 var income = [];
-var taxRank = [];  
+var taxScore = [];  
 var educationalAttainment = [];
 var commuteTime = [];
 var crimeRate = [];
@@ -41,12 +41,12 @@ function init(){
  data.keys.forEach(element => {
      buisnessGrowth.push(element.biz_growth_Y) 
      income.push(element.median_household_inc)
-     taxRank.push(element.tax_rank)
+     taxScore.push(element.tax_score)
      population.push(element.population_2016)
      cityName.push(element.city)
      stateName.push(element.state) 
      educationalAttainment.push(element.bach_or_higher_percent)
-     commuteTime.push(element.agg_commute_mins)
+     commuteTime.push(element.agg_commute_mins/element.population_2016)
      cityState.push(element.city_state)
  });
  var trace1 = {
@@ -58,7 +58,9 @@ function init(){
         type : "scatter",
         name: 'City Name',
         text: cityState,
-        marker : {size: 6}
+        marker : {
+            size: 6,
+            color: 'rgb(204, 85, 0)'}
         };
 
  var sData = [trace1];
@@ -88,41 +90,41 @@ function updatePlotly(newdata, newlayout) {
     Plotly.restyle(chart, 'x', [newdata]);
     Plotly.relayout(chart, 'xaxis.title.text',newlayout);
 }
+
 function getData(dataset) {
     let data = [];
     let layout = '';
     switch (dataset) {
         case "Population":
         data =  population;
-        layout = 'population';
+        layout = 'Total Population';
         break;
         case "EducationalAttainment":
         data = educationalAttainment;
-        layout = 'Education'
+        layout = 'Percent Populatio with Bachelors degree or Higher'
         break;
         case "Household Income":
         data =  income;
-        layout = 'Income';
+        layout = 'Average Household Income (USD)';
         break;
         case "Commute Time":
         data =  commuteTime;
-        layout = 'Commute';
+        layout = 'Average Commute Time (minutes)';
         break;
      //    case "Crime Rate":
      //    data =  crimeRate
         break;
         case "State Tax":
-        data =  taxRank
-        layout = 'Taxes';
+        data =  taxScore
+        layout = "'Tax Score'";
         break;
         default:
         data =  population ;
-        layout = 'popluation' ; 
+        layout = 'Total Population'; 
   }
   updatePlotly(data, layout);
 }
 
 init();
 
-init();
 
