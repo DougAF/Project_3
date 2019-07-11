@@ -83,9 +83,9 @@
 
     <section class="section section-light">
         <h2 id="section1">Build Your City for Business</h2>
-<p> What is a city? This question when analyzed closely proved difficult to answer. A city is composed of a government, people, and the structures they use and inhabit in their daily life. We believe that these three broad categories can be quantified and analyzed. To do this we analyze a cities tax structure, demographic qualities, and growth of establishments then attempt to see how these qualities influence each other. So, what does all this mean for your city and how can you make your community more marketable for start-ups and business in general?</p>
+<p> What is a city? This question when analyzed closely proved difficult to answer. A city is composed of a government, people, and the structures they inhabit and use in their daily life. We believe that these three broad categories can be quantified and analyzed. To do this we measure a city’s tax structure, demographic qualities, and growth of establishments then attempt to see how these qualities influence each other. This will help city officials, businesses, and voters plan policies for a better future. </p>
 <h2>Plan Ahead</h2>
-<p>It’s time to start thinking smart for smarter growth. Many cities that are reaping the rewards and seeing businesses grow have made it a point to plan for change, adopt a strategic approach and think environmentally. When it comes to the future, one thing is for certain, change will happen. As a city, being prepared for change and understanding the geopolitical trends happening now can better prepare you for the future.</p>
+<p>It’s time to start thinking smart for smarter growth. Many cities that are seeing businesses grow have made it a point to plan for change, adopt a strategic approach and make decisions guided by data. When it comes to the future, one thing is for certain, change is inevitable. As a city, being prepared for change with data models ready and understanding the geopolitical trends today can better prepare you for healthy growth tomorrow.</p>
     </section>
 
     <div class="pimg2">
@@ -121,14 +121,41 @@
                         <p class="text-left"><b>Visualizations</b></p>
                         <p class="text-left">To display our data in an interactive way we decided to create a Leaflet interactive map and a scatter plot with toggleable X variables. The Leaflet map consists of a circle for each city that is colored to indicate business growth or shrinkage and whos radius is scaled by the magnitude of this change. Our scatter plot allows the user to search for correlation between a chosen X varable and business growth percentage. The scatter plot also provides information via hovertext so that one may transition between the Scatter and Map with a city or metric in mind.</p>
                         <hr>
-                        <p class="text-left"><b>Project Limitations</b></p>
-                        <p class="text-left">DATA</p>
+                        <h3 class="text-left"><b>Machine Learning</b></h3>
+
+ 
+
+                        <p class="text-left">Clustering: We built models using PCA and K means clustering. </p>
+                        <p class="text-left"><b>Why did we cluster?</b></p>
+                        <p class="text-left">To see if cities grouped together in a meaningful way. Our results were less than ideal.</p>
+                        <p class="text-left"><b>See our PCA code below</b></p>
+                        <img src="../static/img/pca_ml_code.png" alt="PCA CODE" style="width:700px;height:300px;">
+                        <br><br>
+                        <p class="text-left">This is the resulting plot where clusters are represented with discrete colors.</p>
+                        <img src="../static/img/cluster_plot.png" alt="Cluster plot" style="width:540px;height:380px;">
+                        <p class="text-left">As you can see above, the clusters are not great.There is very little separation between the green and purple clusers. Additionally the lime green, dark blue, yellow, and seafoam green cluseters contain very little data; almost as if they are capturing outliers. The vast majority of cities are grouped into the green cluster. </p>
+                        <p class="text-left"> We suspect that cites could be broken into categories based on population; small, medium, large, and XL. Where larger cities would display more stability and constant growth and small and medium cities would have more variance.</p>
+
+                        <p class="text-left">Regression: We built linear, lasso, and Support vector regression models</p>
+                        <p class="text-left">Why did we use regression?</p>
+                        <p class="text-left">To give us a model to predict the behavior of cites in the future. Unfortunately our model was not robust enough to do this.</p> 
+                        <p class="text-left">Note below the column to the far right. This shows the strenght of correlation to our Y variable, Establishment % Change. Most of our year to year intervals look like the data shown below.</p> 
+                        <img src="../static/img/correlations_2016.png" alt="corr_2016" style="width:800px;height:150px;">
+                        <p class="text-left">Interestingly, our data showed much higher correlation for the year interval 2012-2013. Note the values in the far right column are much higher than the previous data.</p> 
+
+                        <img src="../static/img/correlations_2013.png" alt="corr_2013" style="width:800px;height:150px;">
+                        <br><br>
+                        <!-- <img src="../static/img/lr_code.png" alt="lr code" style="width:650px;height:250px;"> -->
+                        <!-- <img src="../static/img/lasso_model.png" alt="lasso_code" style="width:700px;height:300px;"> -->
+                        <!-- <img src="../static/img/bar_chart.png" alt="barchart" style="width:900px;height:420px;"> -->
+                        <h3 class="text-left"><b>Project Limitations</b></h3>
+                        <p class="text-left"><b>Data</b></p>
                         <li class="text-left">Only contians 383 Metro areas</li>
                         <li class="text-left">No startup survival rate data</li>
                         <li class="text-left">Tax data had to be taken in a score format and trusted to outside source (shown below)</li>
                         <li class="text-left">Population and establishment data taken from a small window (5 years)</li>
                         <hr>
-                        <p class="text-left">Methods</p>
+                        <p class="text-left"><b>Methods</b></p>
                         <li class="text-left">Perhaps grouping cities by population and developing a model for each population category would yeild better machine learning results.</li>
                         <li class="text-left">Scope creep definitely got the best of us on a few occasions. </li>
                         <li class="text-left">Tax data had to be taken in a score format and trusted to outside source (shown below)</li>
@@ -137,7 +164,7 @@
                         <p class="text-left"><b>Next Steps</b></p>
                         <li class="text-left">Collect more X variables the tax and infrastructure categories</li>
                         <li class="text-left">Extend the model to European cities</li>
-                        <li class="text-left">Strengthen our model with more data ie more cities</li>
+                        <li class="text-left">Strengthen our model with more data from more cities</li>
                     </div>
                 </div>
             
