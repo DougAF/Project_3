@@ -101,7 +101,7 @@ function getData(dataset) {
         break;
         case "EducationalAttainment":
         data = educationalAttainment;
-        layout = 'Percent Populatio with Bachelors degree or Higher'
+        layout = 'Percent Population with Bachelors degree or Higher'
         break;
         case "Household Income":
         data =  income;
